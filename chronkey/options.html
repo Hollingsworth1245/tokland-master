@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Chronkey options</title>
+    <script type="text/javascript" src="services.js"></script>
+    <script type="text/javascript" src="options.js"></script>
+    <style>
+      form { 
+        margin: 0px; 
+        margin: 10px; 
+        padding: 5px; 
+        width: 700px; 
+        border: 1px solid grey; 
+      }
+      input.error { 
+        background-color: #FAA; 
+      }
+    </style>
+  </head>
+    
+  <body onload="onload()">
+    <h2>Options</h2>
+    <div id="service_template" style="display: none">
+      <form class="service">
+        <input type="hidden" name="service" value="%service%"></input>
+        Name: <input type="text" size="20" name="name" value="%name%"></input>
+        (%service_name%)
+        <br />
+        Submit URL: <input type="text" size="64" name="url" value="%url%"></input>
+        <br />        
+        Batch URL regular expresssion: 
+        <input type="text" size="64" name="url_regexp" value="%url_regexp%"></input>
+        <br />
+        Submit link hotkey (optional): 
+        <input type="text" size="64" name="hotkey" value="%hotkey%"></input>
+        <br />
+        &nbsp;<i>Example: &lt;control&gt;&lt;alt&gt;&lt;shift&gt;c</i>
+        <br />      
+        <a href="#" onclick="remove(this)">remove</a>
+      </form>      
+    </div>
+        
+    <div id="options">
+      <select id="add" name="add"></select>
+      <button onclick="add({service: $('add').value})">Add</button>
+      <div id="services">
+      </div>
+      <br />
+      <button onclick="save_options()">Save</button>
+      <span id="feedback"></span>
+    </div>
+
+    <hr />    
+    <div id="help">
+    </div>    
+  </body>
+</html>
